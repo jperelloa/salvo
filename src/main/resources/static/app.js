@@ -8,7 +8,6 @@ $(function() {
   // load and display JSON sent by server for /players
 
   function loadData() {
-    console.log("HOLA") ;
     $.get("/players")
     .done(function(data) {
       showOutput(JSON.stringify(data, null, 2));
@@ -22,7 +21,6 @@ $(function() {
 
   function addPlayer() {
     var name = $("#userName").val();
-    console.log("name " + name);
     if (name) {
       postPlayer(name);
     }
@@ -32,8 +30,7 @@ $(function() {
   // on success, reload and data from server
 
   function postPlayer(userName) {
-     console.log("userName " + userName);
-    $.post({
+      $.post({
       headers: {
           'Content-Type': 'application/json'
       },

@@ -9,6 +9,10 @@ package edu.example;
     import javax.persistence.GeneratedValue;
     import javax.persistence.GenerationType;
     import javax.persistence.Id;
+    import javax.persistence.OneToMany;
+    import javax.persistence.FetchType;
+    import java.util.HashSet;
+    import java.util.Set;
 
 @Entity
 public class Player {
@@ -17,6 +21,10 @@ public class Player {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String userName;
+    @OneToMany(mappedBy="playerData", fetch=FetchType.EAGER)
+    Set<GamePlayer> PlayerSet = new HashSet<>();
+
+
 
 
     public Player() { }
