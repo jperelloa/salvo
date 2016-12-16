@@ -13,18 +13,16 @@ public class Game {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private Date creationDate;
-    @OneToMany(mappedBy="gameData", fetch=FetchType.EAGER)
-    Set<GamePlayer> GameSet = new HashSet<>();
+    @OneToMany(mappedBy="game_in_gp", fetch=FetchType.EAGER)
+    Set<GamePlayer> GameSet = new LinkedHashSet<>();
 
     public Game() { }
 
-    /*public Game() {
-              this.creationDate = new Date();
-            } */
 
     public Game(Date date) {
         this.creationDate = date;
     }
+
 
     public long getId() {
         return id;
@@ -43,6 +41,7 @@ public class Game {
         Date newDate = new Date();
         return Date.from(newDate.toInstant().plusSeconds(seconds));
     }
+
 
 
 }

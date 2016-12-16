@@ -21,7 +21,7 @@ public class Player {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String userName;
-    @OneToMany(mappedBy="playerData", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="player_in_gp", fetch=FetchType.EAGER)
     Set<GamePlayer> PlayerSet = new HashSet<>();
 
 
@@ -41,7 +41,13 @@ public class Player {
         this.userName = userName;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String toString() {
         return userName;
