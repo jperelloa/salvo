@@ -40,6 +40,7 @@ public class SalvoApplication {
             date = Game.addTime(18000);
             Game game6 = gamerepository.save(new Game(date));
 
+
             gameplayerrepository.save(new GamePlayer(game1, player1 ));
             gameplayerrepository.save(new GamePlayer(game1, player2 ));
             gameplayerrepository.save(new GamePlayer(game2, player1 ));
