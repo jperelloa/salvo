@@ -13,8 +13,8 @@ public class Game {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private Date creationDate;
-    @OneToMany(mappedBy="game_in_gp", fetch=FetchType.EAGER)
-    Set<GamePlayer> GameSet = new LinkedHashSet<>();
+    @OneToMany(mappedBy="gameInGp", fetch=FetchType.EAGER)
+    Set<GamePlayer> gameSet = new LinkedHashSet<>();
 
     public Game() { }
 
@@ -37,11 +37,23 @@ public class Game {
     }
 
 
+    //método temporal para añadir tiempo a la fecha
     public static Date addTime(long seconds) {
         Date newDate = new Date();
         return Date.from(newDate.toInstant().plusSeconds(seconds));
     }
 
+    public Set<GamePlayer> getGameSet() {
+        return gameSet;
+    }
+
+    public void setGameSet(Set<GamePlayer> gameSet) {
+        this.gameSet = gameSet;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
 }

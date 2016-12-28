@@ -3,16 +3,10 @@ package edu.example;
 /**
  * Created by jpere on 12/12/2016.
  */
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.FetchType;
+import javax.persistence.*;
 import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 public class GamePlayer {
@@ -22,23 +16,26 @@ public class GamePlayer {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="game_id")
-    private Game game_in_gp;
+    private Game gameInGp;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="player_id")
-    private Player player_in_gp;
+    private Player playerInGp;
 
     private Date creationDate;
+
+    @OneToMany(mappedBy="gamePlayerInShip", fetch=FetchType.EAGER)
+    Set<Ship> shipSet = new LinkedHashSet<>();
 
 
     public GamePlayer() {
     }
 
-    public GamePlayer(Game game_in_gp, Player player_in_gp) {
-        this.game_in_gp = game_in_gp;
-        this.player_in_gp = player_in_gp;
-        this.creationDate = game_in_gp.getCreationDate();
-    }
+    public GamePlayer(Game gameInGp, Player playerInGp) {
+        this.gameInGp = gameInGp;
+        this.playerInGp = playerInGp;
+        this.creationDate = gameInGp.getCreationDate();
+        }
 
     //GETTERS & SETTERS
     public long getId() {
@@ -49,20 +46,20 @@ public class GamePlayer {
         this.id = id;
     }
 
-    public Player getPlayer_in_gp() {
-        return player_in_gp;
+    public Game getGameInGp() {
+        return gameInGp;
     }
 
-    public void setPlayer_in_gp(Player player_in_gp) {
-        this.player_in_gp = player_in_gp;
+    public Player getPlayerInGp() {
+        return playerInGp;
     }
 
-    public Game getGame_in_gp() {
-        return game_in_gp;
+    public void setPlayerInGp(Player playerInGp) {
+        this.playerInGp = playerInGp;
     }
 
-    public void setGame_in_gp(Game game_in_gp) {
-        this.game_in_gp = game_in_gp;
+    public void setGameInGp(Game gameInGp) {
+        this.gameInGp = gameInGp;
     }
 
     public Date getCreationDate() {
@@ -73,14 +70,11 @@ public class GamePlayer {
         this.creationDate = creationDate;
     }
 
-    /*public Map<String, Object> getMap () {
-        Map<String, Object> dto = new LinkedHashMap<String, Object>();
-        dto.put("id", getId());
-        dto.put("player", getPlayer_in_gp());
-        dto.put("game", getGame_in_gp());
-        dto.put("creation date", getCreationDate());
-        return dto;
-    }*/
+    public Set<Ship> getShipSet() {
+        return shipSet;
+    }
 
-
+    public void setShipSet(Set<Ship> shipSet) {
+        this.shipSet = shipSet;
+    }
 }
