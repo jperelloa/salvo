@@ -41,6 +41,15 @@ td {
 
 .playersTitle {
     color: blue;
-    background-color: yellow;
+}
+
+.water {
+    background-color: blue;
+    font-size: 20px;
+}
+
+.touched {
+    background-color: red;
+    font-size: 20px;
 }
 

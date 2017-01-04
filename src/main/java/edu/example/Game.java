@@ -15,6 +15,8 @@ public class Game {
     private Date creationDate;
     @OneToMany(mappedBy="gameInGp", fetch=FetchType.EAGER)
     Set<GamePlayer> gameSet = new LinkedHashSet<>();
+    @OneToMany(mappedBy="gameInScore", fetch=FetchType.EAGER)
+    Set<GameScore> scoreSet = new LinkedHashSet<>();
 
     public Game() { }
 
@@ -55,5 +57,11 @@ public class Game {
         this.id = id;
     }
 
+    public Set<GameScore> getScoreSet() {
+        return scoreSet;
+    }
 
+    public void setScoreSet(Set<GameScore> scoreSet) {
+        this.scoreSet = scoreSet;
+    }
 }

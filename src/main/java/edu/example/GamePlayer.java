@@ -28,13 +28,24 @@ public class GamePlayer {
     Set<Ship> shipSet = new LinkedHashSet<>();
 
 
+    @OneToMany(mappedBy="gamePlayerInSalvo", fetch=FetchType.EAGER)
+    Set<Salvo> salvoSet = new LinkedHashSet<>();
+
+    //private Double score;
+
+    //private Date finishDate;
+
+
     public GamePlayer() {
     }
 
+    //public GamePlayer(Game gameInGp, Player playerInGp, Double score, Date date ) {
     public GamePlayer(Game gameInGp, Player playerInGp) {
         this.gameInGp = gameInGp;
         this.playerInGp = playerInGp;
         this.creationDate = gameInGp.getCreationDate();
+       // this.score = score;
+       // this.finishDate = date;
         }
 
     //GETTERS & SETTERS
@@ -77,4 +88,14 @@ public class GamePlayer {
     public void setShipSet(Set<Ship> shipSet) {
         this.shipSet = shipSet;
     }
+
+    public Set<Salvo> getSalvoSet() {
+        return salvoSet;
+    }
+
+    public void setSalvoSet(Set<Salvo> salvoSet) {
+        this.salvoSet = salvoSet;
+    }
+
+
 }

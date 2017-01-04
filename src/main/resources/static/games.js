@@ -2,18 +2,19 @@ $(function() {
 
 var data = $.getJSON("/api/games")
 .done(function (data) {
-    console.log(data);
-    console.log(data[0]);
-    console.log(data[0].gamePlayers[0].player.email);
     createGameList(data);
 })
 .fail(function() {
     console.log( "error" );
-  })
-;
+  });
 
-
-
+var dataScore = $.getJSON("/api/players")
+.done(function (dataScore) {
+    makeTableScore(dataScore);
+})
+.fail(function() {
+    console.log( "error" );
+  });
 
 
   function createGameList(data){
@@ -22,17 +23,14 @@ var data = $.getJSON("/api/games")
                  var players = "";
                  var dateMilli = data[i].creationDate;
                  var dateOk = makedate(dateMilli);
-                 console.log ("AAA " + data[i].gamePlayers.length);
                  for (var j = 0; j < data[i].gamePlayers.length; j++){
                      arrayPlayers.push(data[i].gamePlayers[j].player.email);
                  }
-                  if (!arrayPlayers[0]) { arrayPlayers[0] = ""};
-                  if (!arrayPlayers[1]) { arrayPlayers[1] = ""};
+                 if (!arrayPlayers[0]) { arrayPlayers[0] = ""};
+                 if (!arrayPlayers[1]) { arrayPlayers[1] = ""};
 
                  players =   " , " +   arrayPlayers[0] + " , " +  arrayPlayers[1]  ;
-                 console.log("PLAYERS " + players);
-                // $('#gamelist').append("<li> "+ dateOk +"  "+ players +"  </li>");
-                $('#gamelist').append("<li> "+ dateOk +"   "+ players +"   </li>");
+                 $('#gamelist').append("<li> "+ dateOk +"   "+ players +"   </li>");
              }
     }
 
@@ -42,5 +40,30 @@ var data = $.getJSON("/api/games")
             return dateOk;
     }
 
+
+    function makeTableScore(dataScore) {
+      console.log("SCORE " + dataScore.length);
+        var table = $('#datos_tabla');
+        for(var i = 0; i < dataScore.length; ++i){
+                table.append(
+                        $('<tr>').append($('<td class="nameColumn">').text(dataScore[i].email))
+                                 .append($('<td>').text(dataScore[i].scores.total))
+                                 .append($('<td>').text(dataScore[i].scores.won))
+                                 .append($('<td>').text(dataScore[i].scores.lost))
+                                 .append($('<td>').text(dataScore[i].scores.tied))
+                 )
+                //var tr = "<tr>";
+                /*for(var j = 0; j < 5; ++j){
+                            //crea celdas
+
+                            var cellClass = "hola";
+                            tr += "<td class= "+cellClass+"></td>";
+
+                         }*/
+                   //  $('<tr>').append($('<td>').text(dataScore.email))
+                }
+                tr += "</tr>";
+                table.append(tr);
+            }
 
 })
