@@ -6,6 +6,9 @@
 table {
         margin-left: 10%;
         margin-top: 10%;
+        background-image: url("radar.gif");
+        background-size: cover;
+
         }
 
 .table2 {

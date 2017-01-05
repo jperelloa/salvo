@@ -1,6 +1,7 @@
     package edu.example;
 
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.security.core.Authentication;
     import org.springframework.web.bind.annotation.PathVariable;
     import org.springframework.web.bind.annotation.RequestMapping;
     import org.springframework.web.bind.annotation.RestController;
@@ -47,7 +48,9 @@
         }
 
 
-       //endpoint game_view/gp_id
+
+
+        //endpoint game_view/gp_id
         @RequestMapping("/game_view/{gpId}")
         public Map<String, Object> getSelectgp(@PathVariable Long gpId) {
             Map<String, Object> dto = new LinkedHashMap<String, Object>();
@@ -73,6 +76,10 @@
                     .map (player -> makePlayerDTO(player))
                     .collect(toList());
         }
+
+       // @RequestMapping("/manager")
+      //  String playerConnected = getPlayerConnected(Authentication authentication);
+
 
         // --------------MÉTODOS PLAYERS----------
         private Map<String, Object> makePlayerDTO(Player player) {
@@ -223,6 +230,9 @@
         }
 
         // ------------------------
+      //  private String getPlayerConnected(Authentication authentication) {
 
+       //     return playerrepo.findByUserName(authentication.getName());
+      //  }
 
     }
