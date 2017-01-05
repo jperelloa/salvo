@@ -1,0 +1,58 @@
+.container{
+    display:inline-flex;
+    flex-direction: row;
+}
+
+table {
+        margin-left: 10%;
+        margin-top: 10%;
+        background-image: url("radar.gif");
+        background-size: cover;
+
+        }
+
+.table2 {
+    margin-left: 30%;
+}
+
+table,tr, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 30px;
+    height: 30px;
+    table-layout: fixed;
+    }
+
+td {
+    text-align: center;
+    }
+
+.marker_row {
+   background-color: black;
+   color: white;
+}
+
+.marker_col {
+    background-color: black;
+    color: white;
+}
+
+.ship {
+    background-color: yellow;
+    border: 2px solid;
+}
+
+.playersTitle {
+    color: blue;
+}
+
+.water {
+    background-color: blue;
+    font-size: 20px;
+}
+
+.touched {
+    background-color: red;
+    font-size: 20px;
+}
+

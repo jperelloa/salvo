@@ -21,16 +21,21 @@ public class Player {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String userName;
-    @OneToMany(mappedBy="player_in_gp", fetch=FetchType.EAGER)
-    Set<GamePlayer> PlayerSet = new HashSet<>();
+    private String password;
+    @OneToMany(mappedBy="playerInGp", fetch=FetchType.EAGER)
+    Set<GamePlayer> playerSet = new HashSet<>();
+    @OneToMany(mappedBy="playerInScore", fetch=FetchType.EAGER)
+    Set<GameScore> scoreSet = new HashSet<>();
+
 
 
 
 
     public Player() { }
 
-    public Player(String userName) {
+    public Player(String userName, String password) {
         this.userName = userName;
+        this.password = password;
         }
 
     public String getUserName() {
@@ -49,7 +54,31 @@ public class Player {
         this.id = id;
     }
 
+    public Set<GamePlayer> getPlayerSet() {
+        return playerSet;
+    }
+
+    public void setPlayerSet(Set<GamePlayer> playerSet) {
+        this.playerSet = playerSet;
+    }
+
     public String toString() {
         return userName;
+    }
+
+    public Set<GameScore> getScoreSet() {
+        return scoreSet;
+    }
+
+    public void setScoreSet(Set<GameScore> scoreSet) {
+        this.scoreSet = scoreSet;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
