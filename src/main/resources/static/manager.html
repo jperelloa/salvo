@@ -1,19 +1,39 @@
-<!DOCTYPE HTML>
-<html>
-<head> <title>Player Manager</title> </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salvo!</title>
+</head>
 <body>
-<h1>Player Manager</h1>
+<header>
+    <a href="manager.html" class="button newGame"> NEW GAME </a>
+</header>
+<ol id="gamelist">
 
-<form action="" onsubmit="return false">
-    <label>Email User Name [e.g., alice@aol.com]: <input id="userName" type="text" size="30"></label>
-    <button id="add_player">Add</button>
-    <br>
-    <pre id="output"></pre>
-</form>
+</ol>
+
+<div class="container">
+    <div class="box box1">
+        <table class="table" >
+            <thead>
+            <th class="nameColumn"> Name </th>
+            <th> Total </th>
+            <th> Won </th>
+            <th> Lost </th>
+            <th> Tied </th>
+            </thead>
+            <tbody id="datos_tabla">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
 
 
 <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-<script src="app.js"></script>
+<script src="manager.js"></script>
+<link rel="stylesheet"  href="games.css">
 
 </body>
 </html>

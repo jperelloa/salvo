@@ -18,10 +18,6 @@ var data = $.getJSON(urlText)
         mySalvoes(data,myPlayer, param);
 
 
-
-
-
-
       })
     .fail(function( jqXHR, textStatus ) {
           showOutput( "Failed: " + textStatus );

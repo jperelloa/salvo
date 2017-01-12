@@ -1,9 +1,28 @@
+#gamelist {
+    margin-top: 5%;
+    margin-left: 15%;
+    background-color: skyblue;
+    border: 5px outset lightslategray;
+    border-radius: 20px;
+    width:800px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 
 table {
     border-collapse: collapse;
-    margin-left: 20%;
+    margin-left: 30%;
+    background-color: skyblue;
+        border: 5px outset lightslategray;
+        border-radius: 10px;
     }
-
+//.box {
+    background-color: skyblue;
+    border: 5px solid lightslategray;
+    border-radius: 20px;
+    width: 370px;
+//    }
 th,tr, td {
     border: 1px solid;
     width: 50px;
@@ -24,10 +43,82 @@ th {
  }
 
  .button {
-     -webkit-appearance: button;
-     -moz-appearance: button;
-     appearance: button;
      text-decoration: none;
-     color: blue;
-     width: 80px;
+     color: yellow;
+     border: 4px solid grey;
+     border-radius: 100px;
+     padding:20px;
+     overflow: hidden;
+   //  margin-left:65%;
+     background-color: black;
+     width: 100px;
+     text-align: center;
+    }
+
+  .button:focus {
+       outline:0;
+  }
+
+
+
+
+header {
+    margin-top: 50px;
+}
+ body {
+    background-image: url("games_image.gif");
+    background-size: cover;
  }
+
+ .join {
+     color: black;
+      appearance:button;
+     -moz-appearance:button; /* Firefox */
+     -webkit-appearance:button; /* Safari and Chrome */
+     padding: 3px 3px 3px 5px;
+     border: 4px outset lightslategray;
+     background-color: yellow;
+     border-radius: 20px;
+ }
+
+ li {
+    padding-top: 5px;
+    padding-bottom:5px;
+ }
+
+ #login-form {
+    margin-left: 25%;
+ }
+
+ .login {
+    background-color: black;
+    color:yellow;
+    border: 4px outset lightslategray;
+ }
+
+#usuariologado {
+    font-size: 20px;
+    background-color: black;
+    color:yellow;
+    width: 200px;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 10%;
+}
+
+.errorMessage {
+    background-color: black;
+    color:red;
+    width: 300px;
+    text-align: center;
+    display: none;
+}
+
+.okMessage {
+     background-color: black;
+        color:yellow;
+        width: 300px;
+        text-align: center;
+        display: none;
+    }
+}

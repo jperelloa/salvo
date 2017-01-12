@@ -1,9 +1,17 @@
 $(function() {
-
+    console.log("HOLAAA");
+    var data = $.getJSON("/api/manager")
+      .done(function (data) {
+          showOutput();
+      })
+      .fail(function() {
+          console.log( "errorrrr" );
+        });
   // display text in the output area
   function showOutput(text) {
     $("#output").text(text);
   }
+
 
   // load and display JSON sent by server for /players
 
