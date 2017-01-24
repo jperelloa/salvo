@@ -9,26 +9,40 @@
 
 </div>
 <div class="container">
-    <div class="box box1">
+
             <table class="table1" >
                 <tbody id="datos_tabla1">
 
                 </tbody>
             </table>
-    </div>
 
-    <div class="box box2">
+
+
             <table class="table2" >
                 <tbody id="datos_tabla2">
 
                 </tbody>
-            </table>
-    </div>
+                </table>
+
 </div>
-
-
-<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-<script src="game.js"></script>
-<link rel="stylesheet"  href="game.css">
-</body>
-</html>
+<input type="submit" name="confirm" value="CONFIRM" id="confirm" class="button" >
+    <p id="message"></p>
+  <!--  </div> -->
+    <div class="shiplist">
+        <p class="shipname carrier">carrier </p><p id="carrier" data-cells="5" class="selectship">a</p>
+        <p class="shipname battleship">battleship </p><p id="battleship" data-cells="4" class="selectship">a</p>
+        <p class="shipname destroyer">destroyer </p><p id="destroyer" data-cells="3" class="selectship">a</p>
+        <p class="shipname submarine">submarine </p><p id="submarine" data-cells="3" class="selectship">a</p>
+        <p class="shipname patrol_boat">patrol boat </p><p id="patrol_boat" data-cells="2" class="selectship">a</p>
+    </div>
+    <div id="extrabuttons">
+         <div id="direction">
+             <input type="radio" name="position" value="H" id="horizontal" > <label >Horizontal</label>
+             <input type="radio" name="position" value="V" id="vertical"> <label >Vertical</label>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script src="game.js"></script>
+    <link rel="stylesheet"  href="game.css">
+    </body>
+    </html>
