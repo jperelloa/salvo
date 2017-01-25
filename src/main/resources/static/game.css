@@ -1,3 +1,8 @@
+body {
+    background-image: url("radar2.jpg");
+    background-size: cover;
+ }
+
 .container{
     display:inline-flex;
     flex-direction: row;
@@ -5,16 +10,20 @@
 
 table {
         margin-left: 10%;
-        margin-top: 10%;
-        background-image: url("radar.gif");
+        margin-top: 0%;
+        background-image: url("radar5.gif");
         background-size: cover;
         background-position-x: center;
-
+        background-position-y: center;
         }
 
 .table2 {
-    margin-left: 30%;
-}
+    margin-left: 10%;
+    pointer-events: none;
+  }
+
+
+
 
 table,tr, td {
     border: 1px solid;
@@ -22,6 +31,7 @@ table,tr, td {
     width: 30px;
     height: 30px;
     table-layout: fixed;
+    color:white;
     }
 
 td {
@@ -30,12 +40,12 @@ td {
 
 .marker_row {
    background-color: black;
-   color: white;
+   color: yellow;
 }
 
 .marker_col {
     background-color: black;
-    color: white;
+    color: yellow;
 }
 
 .ship {
@@ -45,6 +55,15 @@ td {
 
 .playersTitle {
     color: blue;
+    background-color: skyblue;
+    border: 5px outset lightslategray;
+    border-radius: 20px;
+    width:800px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-left: 60px;
+    font-size:25px;
 }
 
 .water {
@@ -57,6 +76,134 @@ td {
     font-size: 20px;
 }
 
+.shiplist {
+    display:flex;
+    align-items:center;
+    margin-top:1px;
+    padding-top:0px;
+}
+#carrier {
+    background-color: yellow;
+    width: 150px;   
+    height: 30px;
+    color:yellow;
+    margin-top:20px;
+    margin-left: 5px;
+    border: 2px solid black;
+}
+
+#battleship {
+    background-color: yellow;
+    width: 120px;   
+    height: 30px;
+    color:yellow;
+    margin-top:20px;
+    margin-left: 5px;
+    border: 2px solid black;
+    }
+
+#destroyer {
+    background-color: yellow;
+    width: 90px;
+    height: 30px;
+    color:yellow;
+    margin-top:20px;
+    margin-left: 5px;
+    border: 2px solid black;
+}
+
+#submarine {
+    background-color: yellow;
+    width: 90px;
+    height: 30px;
+    color:yellow;
+    margin-top:20px;
+    margin-left: 5px;
+    border: 2px solid black;
+}
+
+#patrol_boat {
+    background-color: yellow;
+    width: 60px;
+    height: 30px;
+    color:yellow;
+    margin-top:20px;
+    margin-left: 5px;
+    border: 2px solid black;
+}
+
+.shipname {
+    margin-left: 20px;
+    text-decoration: none;
+    color: yellow;
+    border: 4px solid grey;
+    //border-radius: 100px;
+    padding:5px;
+    overflow: hidden;
+    background-color: black;
+    width: 100px;
+    text-align: center;
+}
+
+#message {
+    background-color: skyblue;
+    border: 5px outset lightslategray;
+    border-radius: 20px;
+    width:800px;
+    height: 30px;
+    margin-top:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-left:70px;
+    font-size:25px;
+    color:red;
+    margin-bottom: 0px;
+}
+
+#message2 {
+    color:red;
+}
 
 
+#direction {
+    display:none;
+    margin-left: 20px;
+    text-decoration: none;
+    color: yellow;
+    border: 4px solid grey;
+    padding:5px;
+    overflow: hidden;
+    background-color: black;
+    width: 230px;
+    text-align: center;
+}
 
+#vertical {
+    margin-left: 30px;
+}
+
+#confirm , #fire {
+    margin-left: 150px;
+  //  margin-top: 350px;
+    align-self:flex-end;
+}
+
+#extrabuttons {
+    display: flex;
+}
+
+.button {
+     text-decoration: none;
+     color: yellow;
+     border: 4px solid grey;
+     border-radius: 100px;
+     padding:20px;
+     overflow: hidden;
+     background-color: black;
+     width: 120px;
+     }
+
+ .button:focus {
+        outline:0;
+  }
