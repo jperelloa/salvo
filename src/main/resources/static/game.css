@@ -76,6 +76,11 @@ td {
     font-size: 20px;
 }
 
+.sink {
+    background-color: green;
+    font-size: 20px;
+}
+
 .shiplist {
     display:flex;
     align-items:center;
