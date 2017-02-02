@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -94,7 +95,7 @@ public class SalvoApplication {
             List<String> shipList4 = Arrays.asList("J1", "J2", "J3");;
             shiprepository.save(new Ship("destroyer", gamePlayer1, shipList4 ));
             List<String> shipList5 = Arrays.asList("F9", "G9");;
-            shiprepository.save(new Ship("patrol boat", gamePlayer1, shipList5 ));
+            shiprepository.save(new Ship("patrol_boat", gamePlayer1, shipList5 ));
 
 
              //barcos gamePlayer 2
@@ -107,7 +108,7 @@ public class SalvoApplication {
              shipList4 = Arrays.asList("G7", "G8", "G9");;
              shiprepository.save(new Ship("destroyer", gamePlayer2, shipList4 ));
              shipList5 = Arrays.asList("A2", "A3");;
-             shiprepository.save(new Ship("patrol boat", gamePlayer2, shipList5 ));
+             shiprepository.save(new Ship("patrol_boat", gamePlayer2, shipList5 ));
 
             //barcos gamePlayer 3
             shipList1 = Arrays.asList("F9", "G9", "H9", "I9", "J9");
@@ -119,7 +120,7 @@ public class SalvoApplication {
             shipList4 = Arrays.asList("B3", "C3", "D3");;
             shiprepository.save(new Ship("destroyer", gamePlayer3, shipList4 ));
             shipList5 = Arrays.asList("C8", "C9");;
-            shiprepository.save(new Ship("patrol boat", gamePlayer3, shipList5 ));
+            shiprepository.save(new Ship("patrol_boat", gamePlayer3, shipList5 ));
 
             //barcos gamePlayer 4
             shipList1 = Arrays.asList("B1", "C1", "D1", "E1", "F1");;
@@ -131,7 +132,7 @@ public class SalvoApplication {
             shipList4 = Arrays.asList("A4", "A5", "A6");;
             shiprepository.save(new Ship("destroyer", gamePlayer4, shipList4 ));
             shipList5 = Arrays.asList("H7", "H8");;
-            shiprepository.save(new Ship("patrol boat", gamePlayer4, shipList5 ));
+            shiprepository.save(new Ship("patrol_boat", gamePlayer4, shipList5 ));
 
 
             //barcos gamePlayer 5
@@ -144,7 +145,7 @@ public class SalvoApplication {
             shipList4 = Arrays.asList("D6", "D7", "D8");;
             shiprepository.save(new Ship("destroyer", gamePlayer5, shipList4 ));
             shipList5 = Arrays.asList("G7", "H7");;
-            shiprepository.save(new Ship("patrol boat", gamePlayer5, shipList5 ));
+            shiprepository.save(new Ship("patrol_boat", gamePlayer5, shipList5 ));
 
             //barcos gamePlayer 6
             shipList1 = Arrays.asList("H4", "H5", "H6", "H7", "H8");
@@ -156,7 +157,8 @@ public class SalvoApplication {
             shipList4 = Arrays.asList("A3", "A4", "A5");;
             shiprepository.save(new Ship("destroyer", gamePlayer6, shipList4 ));
             shipList5 = Arrays.asList("J7", "J8");;
-            shiprepository.save(new Ship("patrol boat", gamePlayer6, shipList5 ));
+            shiprepository.save(new Ship("patrol_boat", gamePlayer6, shipList5 ));
+
 
             //Salvoes
             List<String> salvoList1 = Arrays.asList("B5", "C5", "F1");
@@ -183,6 +185,8 @@ public class SalvoApplication {
             salvorepository.save(new Salvo(2L, gamePlayer5, salvoList1 ));
             salvoList1b = Arrays.asList("E1", "F2","G3");
             salvorepository.save(new Salvo(2L, gamePlayer6, salvoList1b ));
+          //  salvoList1 = Arrays.asList("A6", "A7","A8");
+          //  salvorepository.save(new Salvo(3L, gamePlayer6, salvoList1 ));
 
             //crear GameScores
             date = new Date();
@@ -262,8 +266,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .usernameParameter("name")
                         .passwordParameter("pwd")
                         .loginPage("/api/login");
-              /*  .logoutUrl("/api/logout")
-                        .permmitAll();*/
+
 
         // turn off checking for CSRF tokens
         http.csrf().disable();

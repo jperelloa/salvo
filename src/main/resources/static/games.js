@@ -2,13 +2,29 @@ $(function() {
     if (sessionStorage.getItem("nombre")) {
          var data = $.getJSON("/api/manager")
         .done(function (data) {
-
-             console.log("SIII");
              $("#login-form").hide();
              $("#newgame").show();
+             $("#logout").show();
              console.log("login " + data.player.email);
              $("#usuariologado").text(data.player.email);
              createGameListLogin(data);
+             // si clic sobre botón JOIN
+              $(".join").on('click', function login(evt) {
+                           evt.preventDefault();
+                           var nameuser = sessionStorage.getItem("nombre");
+                           var gamenumber = $("#joingame").attr("data-game");
+                           console.log("GAMENUMBER " + gamenumber);
+                           var url = "/api/games/" + gamenumber + "/players";
+                           console.log("URL " + url);
+                           $.post(url)
+                               .done(function (response) {
+                                     var newgp = response.gpid;
+                                     console.log("newgp " + newgp);
+                                     var url = " game.html?gp=" + newgp;
+                                     console.log("URL " + url);
+                                     location.href = url;
+                                 });
+             })
          })
          .fail(function() {
                console.log( "error" );
@@ -17,6 +33,7 @@ $(function() {
           var data = $.getJSON("/api/games")
            .done(function (data) {
                   $("#newgame").hide();
+                  $("#logout").hide();
                   $("#login-form").show();
                   createGameList(data);
             })
@@ -27,7 +44,7 @@ $(function() {
 
 
 
-
+//TABLA PUNTUACIÖN
 var dataScore = $.getJSON("/api/players")
 .done(function (dataScore) {
     makeTableScore(dataScore);
@@ -73,18 +90,17 @@ var dataScore = $.getJSON("/api/players")
                      }
                      if (!arrayPlayers[0]) { arrayPlayers[0] = ""};
                      if (!arrayPlayers[1]) { arrayPlayers[1] = ""};
-
                      players =   " , " +   arrayPlayers[0] + " , " +  arrayPlayers[1]  ;
+                     //Si hay un solo jugador y no es el logado poner botón join
                      if (!arrayPlayers[1] && arrayPlayers[0] != data.player.email) {
                           var num_game = data.games[i].id;
-                        //  var joinButton = '<a class="join">' + "JOIN" + "</a>"
-                           var joinButton = '<a class="join"' + " " + "data-game=" + num_game  + '>' + "JOIN" + "</a>"
-                       }else {
+                          var joinButton = '<input type="submit" name="join" value="JOIN" class="join" id="joingame"' + " " + "data-game=" + num_game  + '>'
+                      }else {
                               joinButton = "";
                       }
                       console.log(joinButton);
-                 //Si game con usuario logado y 2 jugadores
-                 if ((arrayPlayers[0] === data.player.email || arrayPlayers[1] === data.player.email) &&  arrayPlayers[1] != "" ) {
+                    //Si game con usuario logado y 2 jugadores
+                    if ((arrayPlayers[0] === data.player.email || arrayPlayers[1] === data.player.email) &&  arrayPlayers[1] != "" ) {
 
                         var user1Id  = data.games[i].gamePlayers[0].player.id;
                         var user2Id  = data.games[i].gamePlayers[1].player.id;
@@ -126,7 +142,8 @@ var dataScore = $.getJSON("/api/players")
               var form = evt.target.form;
               console.log("name" + form["username"].value);
               console.log("pass" + form["password"].value);
-                  $.post("/api/login",
+                    $.post("/api/login",
+                   //  $.post("/login",
                      { name: form["username"].value,
                        pwd: form["password"].value })
                     .done(function (response) {
@@ -145,6 +162,19 @@ var dataScore = $.getJSON("/api/players")
                     });
     })
 
+     $('#logout').click(function login(evt){
+                  evt.preventDefault();
+                  $.post("/logout")
+                         .done(function (response) {
+                         console.log("log out");
+                         sessionStorage.clear();
+                         location.reload();
+                           });
+                   });
+
+
+
+    //click en signup
     $('#signup').click(function login(evt){
                      evt.preventDefault();
                     var form = evt.target.form;
@@ -166,3 +196,17 @@ var dataScore = $.getJSON("/api/players")
                                        .show();
                         });
         })
+
+        //click en newgame
+       $('#newgame').click(function login(evt){
+                      evt.preventDefault();
+                      var nameuser = sessionStorage.getItem("nombre");
+                      $.post("/api/games",
+                             { name: nameuser })
+                            .done(function (response) {
+                                console.log("name" + nameuser);
+                                location.reload();
+                       });
+        })
+
+

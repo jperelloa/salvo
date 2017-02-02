@@ -14,8 +14,8 @@ table {
     border-collapse: collapse;
     margin-left: 30%;
     background-color: skyblue;
-        border: 5px outset lightslategray;
-        border-radius: 10px;
+    border: 5px outset lightslategray;
+    border-radius: 10px;
     }
 //.box {
     background-color: skyblue;
@@ -49,7 +49,6 @@ th {
      border-radius: 100px;
      padding:20px;
      overflow: hidden;
-   //  margin-left:65%;
      background-color: black;
      width: 100px;
      text-align: center;
@@ -60,11 +59,10 @@ th {
   }
 
 
-
-
 header {
     margin-top: 50px;
 }
+
  body {
     background-image: url("games_image.gif");
     background-size: cover;
@@ -79,7 +77,12 @@ header {
      border: 4px outset lightslategray;
      background-color: yellow;
      border-radius: 20px;
+     width:60px;
  }
+
+ .join:focus {
+        outline:0;
+   }
 
  li {
     padding-top: 5px;
@@ -121,4 +124,23 @@ header {
         text-align: center;
         display: none;
     }
+
+#newgame {
+         text-decoration: none;
+         color: yellow;
+         border: 4px solid grey;
+         border-radius: 100px;
+         padding:20px;
+         overflow: hidden;
+         background-color: black;
+         margin-left: 15%;
+         text-align: center;
+        }
+
+#newgame:focus {
+        outline:0;
+   }
+
+#joingame {
+    color: black;
 }

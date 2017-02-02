@@ -10,6 +10,6 @@ import java.util.Date;
 
 @RepositoryRestResource
 public interface GameRepository extends JpaRepository<Game, Long> {
-    List<Game> findBycreationDate(Date creationDate);
+    List<Game> findById(Long id);
 }
 

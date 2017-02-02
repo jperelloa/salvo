@@ -9,5 +9,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface GamePlayerRepository extends JpaRepository<GamePlayer, Long> {
-        List<GamePlayer> findById(Long id);
+        List<GamePlayer> findById(Long id); //TODO millor retornar un sol GamePlayer en comptes dun llistat
     }
